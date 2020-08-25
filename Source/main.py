@@ -22,12 +22,21 @@ def fetchFileFromURL(url):
         if r.status_code < 200 or r.status_code > 299:
             raise(f"({r.status_code}) {r.text}")
         else:
+            print("Successfully fetched airspace file.")
             return r.text
     except Exception as e:
         print(f"Could not fetch file from {url}\n{e}")
+        sys.exit(1)
 
 def readFile(filePath):
-    raise NotImplementedError
+    try:
+        f = open(filePath)
+        fileData = f.read()
+        f.close()
+        return fileData
+    except Exception as e:
+        print(f"Could not read file from {filePath} - {e}")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
