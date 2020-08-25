@@ -1,8 +1,8 @@
 # Function to convert Open air format files to JSON
 import sys
 
-def OAir2json():
-    raise NotImplementedError
+def OAir2json(asFileContents):
+    print(asFileContents)
 
 
 if __name__ == "__main__":
