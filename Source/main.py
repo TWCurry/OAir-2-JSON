@@ -1,5 +1,5 @@
 # Script to convert Open air format files to JSON
-import sys, re, requests
+import sys, re, requests, json
 from OAir2json import OAir2json
 
 def main():
@@ -17,6 +17,10 @@ def main():
         asFileContents = readFile(fileLoc)
 
     jsonOutput = OAir2json(asFileContents)
+    print(jsonOutput)
+    f = open("output.json", "w")
+    f.write(json.dumps(jsonOutput))
+    f.close()
 
 def fetchFileFromURL(url):
     print(f"Fetching file from {url}...")
