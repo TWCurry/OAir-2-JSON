@@ -5,7 +5,6 @@ outputJson = {
     "introText": "",
     "sectors": []
 }
-standardAirspaceClasses = ["A", "C", "D", "E", "G"]
 
 def OAir2json(asFileContents):
     # Get intro
