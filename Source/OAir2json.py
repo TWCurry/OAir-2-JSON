@@ -65,6 +65,8 @@ def OAir2json(asFileContents):
                         dmsLon2 = line.split(" ")[7].split(":")
                         lon2 = dms2decimal(dmsLon2[0], dmsLon2[1], dmsLon2[2], line.split(" ")[8][:-1])
                         arcs[len(arcs)-1]["points"] = [[lat1, lon1], [lat2, lon2]]
+                    elif lineType == "DC": # Arc radius
+                        arcs[len(arcs)-1]["radius"] = line.split(" ")[1]
                     elif lineType == "AL":
                         altMin = line.split(" ")[1]
                     elif lineType == "AH":
