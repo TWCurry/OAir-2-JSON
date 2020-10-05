@@ -5,8 +5,9 @@ from OAir2json import OAir2json
 def main():
     try:
         fileLoc = sys.argv[1]
+        outputLoc = sys.argv[2]
     except Exception as e:
-        print("Missing parameter, usage:\npy main.py fileLoc\nParameters:\n===========\nfileLoc: Either path to or URL of Open Airspace formatted file.")
+        print("Missing parameter, usage:\npy main.py fileLoc outputLoc\nParameters:\n===========\nfileLoc: Either path to or URL of Open Airspace formatted file.\noutputLoc: Path of output JSON file")
         sys.exit(1)
 
     asFileContents = ""
@@ -17,8 +18,7 @@ def main():
         asFileContents = readFile(fileLoc)
 
     jsonOutput = OAir2json(asFileContents)
-    print(jsonOutput)
-    f = open("output.json", "w")
+    f = open(outputLoc, "w")
     f.write(json.dumps(jsonOutput))
     f.close()
 
